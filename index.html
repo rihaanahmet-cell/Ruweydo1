@@ -1,67 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="so">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruweyda Books Shop</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Nurweydo Academy</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial, sans-serif;
+            background:#f4f4f4;
+        }
+
+        .main-container-unique{
+            width:100%;
+        }
+
+        .header-section{
+            background:#0d6efd;
+            color:white;
+            text-align:center;
+            padding:25px;
+        }
+
+        .content-wrapper-flex{
+            display:flex;
+            min-height:400px;
+        }
+
+        .sidebar-nav{
+            width:220px;
+            background:#1f2937;
+            padding:15px;
+        }
+
+        .menu-btn{
+            width:100%;
+            padding:12px;
+            margin-bottom:10px;
+            border:none;
+            cursor:pointer;
+            text-align:left;
+            border-radius:5px;
+            background:white;
+        }
+
+        .menu-btn:hover,
+        .menu-btn.active{
+            background:#0d6efd;
+            color:white;
+        }
+
+        .info-display-area{
+            flex:1;
+            padding:20px;
+            background:white;
+        }
+
+        .info-tab{
+            display:none;
+        }
+
+        .info-tab.show{
+            display:block;
+        }
+
+        .contact-box{
+            margin-top:10px;
+            line-height:2;
+        }
+
+        .footer-bar{
+            background:#111827;
+            color:white;
+            text-align:center;
+            padding:15px;
+        }
+
+        @media(max-width:768px){
+            .content-wrapper-flex{
+                flex-direction:column;
+            }
+
+            .sidebar-nav{
+                width:100%;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Ruweyda books shop</h1>
+    <div class="main-container-unique">
 
-    <div class="menu">
-        <button onclick="showSection('home')">🏠 Home</button>
-        <button onclick="showSection('about')">ℹ️ About</button>
-        <button onclick="showSection('news')">📰 News</button>
-        <button onclick="showSection('contact')">📞 Contact Us</button>
+        <div class="header-section">
+            <h1>Ku Soo Dhawaada Website-ka Nurweydo Academy</h1>
+        </div>
+
+        <div class="content-wrapper-flex">
+
+            <nav class="sidebar-nav">
+                <button class="menu-btn active" onclick="showInfo(event,'Home')">🏠 Home</button>
+                <button class="menu-btn" onclick="showInfo(event,'About')">ℹ️ About</button>
+                <button class="menu-btn" onclick="showInfo(event,'News')">📰 News</button>
+                <button class="menu-btn" onclick="showInfo(event,'Contact')">📞 Contact Us</button>
+            </nav>
+
+            <div class="info-display-area">
+
+                <div id="Home" class="info-tab show">
+                    <h2>Bogga Hore</h2>
+                    <p>Ku soo dhawaada bogga rasmiga ah ee Nurweydo Academy.</p>
+                </div>
+
+                <div id="About" class="info-tab">
+                    <h2>Nagu Saabsan</h2>
+                    <p>
+                        Nurweydo Academy waa xarun waxbarasho oo bixisa
+                        aqoon tayo leh, anshax wanaagsan iyo horumarinta
+                        ardayda mustaqbalka.
+                    </p>
+                </div>
+
+                <div id="News" class="info-tab">
+                    <h2>Wararka Dugsiga</h2>
+                    <p>
+                        Waxaan diyaarinay koorsooyin cusub oo faa'iido badan
+                        u leh ardayda si ay u horumariyaan xirfadahooda.
+                    </p>
+                </div>
+
+                <div id="Contact" class="info-tab">
+                    <h2>Nala Soo Xiriir</h2>
+
+                    <div class="contact-box">
+                        <p>📧 Email: info@nurweydoacademy.edu</p>
+                        <p>📞 Phone: +252 614596809</p>
+                        <p>📍 Address: Mogadishu, Somalia</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bar">
+            <p>© 2026 Nurweydo Academy | Waxaa diyaariyay Ascad Siciid Caraaye</p>
+        </div>
+
     </div>
-
-    <!-- Home -->
-    <div id="home" class="section">
-        <h2>First page</h2>
-        <p>Ku soo dhawaada Ruweyda books shop waxaad inaga heleysaa noocyo badan oo books ah</p>
-
-        <h2>waxa aad inaga heleysaa</h2>
-        <p>Books ku qoran luqadaha Somali, English and Arabic</p>
-
-        <h2>Discount</h2>
-        <p>Inaga iibso labo buug ka dibna hel hal book free ah</p>
-    </div>
-
-    <!-- About -->
-    <div id="about" class="section">
-        <h2>About</h2>
-        <p>Ruweyda books shop waa goob iibisa buugaag kala duwan oo tayo leh.</p>
-    </div>
-
-    <!-- News -->
-    <div id="news" class="section">
-        <h2>News</h2>
-        <p>Waxaan dhawaan keeneynaa buugaag cusub iyo offers.</p>
-    </div>
-
-    <!-- Contact -->
-    <div id="contact" class="section">
-        <h2>Contact Us</h2>
-        <p>📧 Email: info@ruweydabooks.com</p>
-        <p>📞 Phone: +252 61 4596809</p>
-        <p>📍 location: Karaan</p>
-    </div>
-
-    <p class="footer">Copyright © with Ruweyda</p>
 
     <script>
-        function showSection(id) {
-            let sections = document.getElementsByClassName("section");
-            for (let i = 0; i < sections.length; i++) {
-                sections[i].style.display = "none";
-            }
-            document.getElementById(id).style.display = "block";
-        }
+        function showInfo(evt, sectionName){
 
-        // default show
-        document.getElementById("home").style.display = "block";
+            let infoTab = document.getElementsByClassName("info-tab");
+
+            for(let i = 0; i < infoTab.length; i++){
+                infoTab[i].classList.remove("show");
+            }
+
+            let menuBtn = document.getElementsByClassName("menu-btn");
+
+            for(let i = 0; i < menuBtn.length; i++){
+                menuBtn[i].classList.remove("active");
+            }
+
+            document.getElementById(sectionName).classList.add("show");
+            evt.currentTarget.classList.add("active");
+        }
     </script>
 
 </body>
